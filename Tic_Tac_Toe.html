@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>First File</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			float: left;
+			margin: 0 auto;
+		}
+		.wrapper{
+			width: 306px;
+			margin: 0 auto;
+			position: relative;
+			height: 306px;
+		}
+		.p1{
+			background-color: red;
+		}
+		.p2{
+			background-color: blue;
+		}
+		#win_message_wrapper{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(245,245,245,0.9);
+			display: none;
+		}
+		#win_message_text{
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			font-size: 20px;
+			letter-spacing: 0px;
+			word-spacing: 0px;
+			color: #10D6A4;
+			font-weight: 700;
+			text-decoration: none solid rgb(68, 68, 68);
+			font-style: italic;
+			font-variant: normal;
+			text-transform: capitalize;
+			text-align: center;
+			margin-top: 100px;
+		}
+		#win_message_button{
+			margin: 0 auto;
+			width: 100px;
+			display: block;
+
+		}
+
+	</style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var countClick = 0;
+			$(".box").click(function(){
+				if(! $(this).hasClass("disable")){
+					$(this).addClass("disable");
+					countClick += 1;
+					if(check_odd_even(countClick) == "odd"){
+						$(this).addClass("p1");
+					} else{
+						$(this).addClass("p2");
+					}	
+					if($("#b1").hasClass("p1") & $("#b2").hasClass("p1") & $("#b3").hasClass("p1")){
+						$("#player_name").text("Player 1");	
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b1").hasClass("p2") & $("#b2").hasClass("p2") & $("#b3").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b4").hasClass("p1") & $("#b5").hasClass("p1") & $("#b6").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b4").hasClass("p2") & $("#b5").hasClass("p2") & $("#b6").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b7").hasClass("p1") & $("#b8").hasClass("p1") & $("#b9").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b7").hasClass("p2") & $("#b8").hasClass("p2") & $("#b9").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b1").hasClass("p1") & $("#b4").hasClass("p1") & $("#b7").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b1").hasClass("p2") & $("#b4").hasClass("p2") & $("#b7").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b2").hasClass("p1") & $("#b5").hasClass("p1") & $("#b8").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b2").hasClass("p2") & $("#b5").hasClass("p2") & $("#b8").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b3").hasClass("p1") & $("#b6").hasClass("p1") & $("#b9").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b3").hasClass("p2") & $("#b6").hasClass("p2") & $("#b9").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b1").hasClass("p1") & $("#b5").hasClass("p1") & $("#b9").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b1").hasClass("p2") & $("#b5").hasClass("p2") & $("#b9").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+					if($("#b3").hasClass("p1") & $("#b5").hasClass("p1") & $("#b7").hasClass("p1")){	
+						$("#player_name").text("Player 1");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}else if($("#b3").hasClass("p2") & $("#b5").hasClass("p2") & $("#b7").hasClass("p2")){
+						$("#player_name").text("Player 2");
+						$("#win_message_wrapper").fadeIn();
+						$(".box").addClass("disable");
+					}
+				}
+			});
+			function check_odd_even(number){
+				if(number % 2 == 0){
+					return "even";
+				} else{
+					return "odd";
+				}
+			}
+			$('#win_message_button').click(function() {
+    		location.reload();
+			});
+		});
+			
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="win_message_wrapper">
+			<p id="win_message_text"><span id="player_name"></span> is Winner</p>
+			<button id="win_message_button">Reset</button> 
+		</div>
+		<div id="b1" class="box"></div>
+		<div id="b2" class="box"></div>
+		<div id="b3" class="box"></div>
+		<div id="b4" class="box"></div>
+		<div id="b5" class="box"></div>
+		<div id="b6" class="box"></div>
+		<div id="b7" class="box"></div>
+		<div id="b8" class="box"></div>
+		<div id="b9" class="box"></div>
+	</div>
+</body>
+</html>
